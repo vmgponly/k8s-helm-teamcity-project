@@ -1,0 +1,31 @@
+version: '3.7'
+services:
+  app:
+    build:
+      context: .
+      target: app-run-server
+    depends_on:
+      - redis
+    environment:
+      - RAILS_ENV
+      - RAILS_MASTER_KEY
+      - ENVIRONMENT
+      - KGBAN_REDIS_HOST
+      - KGBAN_REDIS_PORT
+  batch:
+    build:
+      context: .
+      target: batch-run-server
+    depends_on:
+      - redis
+    environment:
+      - RAILS_ENV
+      - RAILS_MASTER_KEY
+      - ENVIRONMENT
+      - KGBAN_REDIS_HOST
+      - KGBAN_REDIS_PORT
+  redis:
+    image: redis:5.0.4
+    volumes:
+      - ./tmp/redis:/data
+    command: redis-server --appendonly yes

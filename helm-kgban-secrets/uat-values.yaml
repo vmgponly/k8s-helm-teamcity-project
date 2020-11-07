@@ -1,0 +1,20 @@
+name: ENC[AES256_GCM,data:4TlSCeiVMxGCEEYqlcCmbg==,iv:ZdXTcvd5y3EeMPC9hijnlpZ+5gT0IF3XTkIx+FhWq/Q=,tag:R4VEn4B7AoCI1bJUnUHDxg==,type:str]
+namespace: ENC[AES256_GCM,data:s0lgxTv6Joc8M2CCzGwT3L8=,iv:7W7Amiu3+q6lYE18dQY+oQgDtkaviihgCzOCP8Tp6V0=,tag:PKhLQH9StqR2dxr32m33cw==,type:str]
+DENEB_AUTH_TOKEN: ENC[AES256_GCM,data:aH+6Kd0/fzgO12U3leTazGKipC0vURsrrUd+60WRO73u4aryhzewBaVLA6OMOmAsO+PhuLT5rCPLslr/,iv:9UUOkBocNeQMLUG6Pf7yEYtBRYZmj0mJpMnWw1Dg6Nk=,tag:ljnMzWSDjm6wYHePzo5OZw==,type:str]
+ALTAIR_AUTH_TOKEN: ENC[AES256_GCM,data:cCYG9fq6UXo4lEDJL8EO/bVghSnF0fpWrFNhCKo8XlrG3BkTkNXy3EdFz56TmZRk1tmw4U2Ah3d19zZE,iv:w8Af+mqbD34kV3/afaEiuAsNZzMJUezc32ep1/VXDDM=,tag:DJI49terqfY2sW8XLef7dw==,type:str]
+nginx_auth: ENC[AES256_GCM,data:xHoTlEKuAVGxmhN5jh6scaq3anUGLvE8As19/hyGE+lBepZ8YGYq+HskV2r/k/ARAcrOGNt2KiwGcyzd,iv:mT/pCyejkVtdUzo4hD5XIisLk+CB03C1v8OXi1BvaBU=,tag:lN01kiUCzQSFodgNwnuv/Q==,type:str]
+nginx_auth_name: ENC[AES256_GCM,data:Mh7Wx9ag+uVjsQ==,iv:ZII0ljfZhg0kt2Cd3ZG7NSztxCbxQBqiF7+ydlPFCv0=,tag:kFBXk2Jzzf7hc82r3tRplQ==,type:str]
+sops:
+    kms:
+    -   arn: arn:aws:kms:us-west-2:967060084917:key/7cc24165-c0c6-4f32-8a7f-10e20d364c68
+        created_at: '2020-08-26T20:28:52Z'
+        enc: AQICAHjPGOnlxKAPIhD87oaKSl8KOinNtSXCZrqmiOcw589ANQEyeJOsgKkYmAVNMJjZ4zM4AAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM5ZZsRWZVANf9Dgh8AgEQgDtcMlH/4AU56a7hN1TP7OeshJBZ+Klpf9HvE23pBltYMQPu/AkHjK490Ux0+iiOA5bUidXqc+vaRauNSg==
+        aws_profile: ""
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    lastmodified: '2020-08-26T20:28:53Z'
+    mac: ENC[AES256_GCM,data:TTJZ6XmXZZH1x4TEX+pMm1sIcU19q4G5IQ32JrGCzbwdXgIJSNOMKgz3UhO4a0WkLu2ljACfdUt1uGhfqmCninGM7NOtvBb4VRoqIp3wvjlh9a0yxgZr65cWhMddVkqpWYrRNP97ikqUYM8JQwAtdFS/zu+lwtfFwQ5c8WEDzEU=,iv:Z/KseP3Z1CF9Ztv7qAsbM0Ir5LSzBaFtw1TlQQniFKI=,tag:k6TUDvCKK5fZZFw114yI3Q==,type:str]
+    pgp: []
+    unencrypted_suffix: _unencrypted
+    version: 3.6.0

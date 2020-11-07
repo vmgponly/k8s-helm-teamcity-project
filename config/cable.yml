@@ -1,0 +1,10 @@
+development:
+  adapter: async
+
+test:
+  adapter: async
+
+production:
+  adapter: redis
+  url: <%= ENV.fetch("REDIS_URL") { "redis://#{Settings.redis.host}:#{Settings.redis.port}/#{Settings.redis.db}" } %>
+  channel_prefix: kgban_production

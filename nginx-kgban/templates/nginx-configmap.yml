@@ -1,0 +1,27 @@
+---
+# Source: namespace/templates/controller-configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    helm.sh/chart: {{ .Values.namespace }}-2.0.3
+    app.kubernetes.io/name: {{ .Values.namespace }}
+    app.kubernetes.io/instance: {{ .Values.namespace }}
+    app.kubernetes.io/version: 0.32.0
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/component: controller
+  name: {{ .Values.namespace }}-controller
+  namespace: {{ .Values.namespace }}
+  annotations:
+    rollme: {{ randAlphaNum 5 | quote }}
+data:
+  #use-proxy-protocol: "false"
+  force-ssl-redirect: "false"
+  use-forwarded-headers: "true"
+  proxy-real-ip-cidr: {{ .Values.proxyrealipcidr }}
+  http-snippet: |
+    server {
+      listen 8080;
+      server_tokens off;
+      return 301 https://$host$request_uri;
+    }

@@ -1,0 +1,8 @@
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+namespace: ingress-nginx-prod
+proxyrealipcidr: 205.166.76.0/24
+sslcert: arn:aws:acm:us-west-2:967060084917:certificate/b1fb7435-0584-4e38-8590-cd00bd2b1234
+loadbalancertype: nlb
+loadbalancerinternal: false
+ingressclass: nginx-prod

@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.image.app_tag  }}
+  namespace: {{ .Values.namespace  }}
+  labels:
+    app: "{{ .Values.image.app_tag }}"
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: "{{ .Values.image.app_tag }}"
+  template:
+    metadata:
+      labels:
+        app: "{{ .Values.image.app_tag }}"
+      annotations:
+        rollme: {{ randAlphaNum 5 | quote }}
+    spec:
+      containers:
+        - name: {{ .Values.image.app_tag }}
+          image: "{{ .Values.image.app_repository }}:{{ .Values.image.app_tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          env:
+            {{- range $key, $val := .Values.environment }}
+            - name: {{ $key }}
+              value: {{ $val | quote }} 
+            {{- end }}
+            - name: DENEB_AUTH_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: kgban-app-secret
+                  key: DENEB_AUTH_TOKEN
+            - name: ALTAIR_AUTH_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: kgban-app-secret
+                  key: ALTAIR_AUTH_TOKEN

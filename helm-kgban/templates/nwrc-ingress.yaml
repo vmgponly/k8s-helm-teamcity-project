@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ .Values.ingress.name }}
+  namespace: {{ .Values.namespace }}
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+    kubernetes.io/ingress.class: {{ .Values.ingress.annotations.ingress_class }}
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/auth-type: basic
+    nginx.ingress.kubernetes.io/auth-secret: {{ .Values.ingress.annotations.auth_secret }}
+    rollme: {{ randAlphaNum 5 | quote }}
+spec:
+  rules:
+  - host: {{ .Values.ingress.host }}
+    http:
+       paths:
+        - path: /
+          backend:
+            serviceName: {{ .Values.ingress.backend.serviceName }}
+            servicePort: {{ .Values.ingress.backend.servicePort }}

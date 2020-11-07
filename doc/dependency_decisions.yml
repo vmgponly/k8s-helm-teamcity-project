@@ -1,0 +1,37 @@
+---
+- - :whitelist
+  - MIT
+  - :who:
+    :why:
+    :versions: []
+    :when: 2018-12-04 01:15:21.400243000 Z
+- - :whitelist
+  - Apache 2.0
+  - :who:
+    :why:
+    :versions: []
+    :when: 2018-12-04 01:16:54.973801000 Z
+- - :whitelist
+  - New BSD
+  - :who:
+    :why:
+    :versions: []
+    :when: 2018-12-04 01:21:30.758471000 Z
+- - :whitelist
+  - Simplified BSD
+  - :who:
+    :why:
+    :versions: []
+    :when: 2018-12-04 01:24:23.141597000 Z
+- - :ignore_group
+  - development
+  - :who:
+    :why:
+    :versions: []
+    :when: 2018-12-04 01:27:46.808558000 Z
+- - :ignore_group
+  - test
+  - :who:
+    :why:
+    :versions: []
+    :when: 2018-12-04 01:27:51.561275000 Z

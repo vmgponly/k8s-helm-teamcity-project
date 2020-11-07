@@ -1,0 +1,23 @@
+defaults: &defaults
+  environment: sandbox
+  access_token:
+    deneb: <%= ENV.fetch('DENEB_AUTH_TOKEN') %>
+    altair: <%= ENV.fetch('ALTAIR_AUTH_TOKEN') %>
+  ip_restriction:
+    duration: 60 # seconds
+    max_count: 6
+  redis:
+    host: <%= ENV.fetch('KGBAN_REDIS_HOST', '127.0.0.1') %>
+    port: <%= ENV.fetch('KGBAN_REDIS_PORT', 6379) %>
+    db: 1
+  logger:
+    access:
+      shift_age:  5
+      shift_size: 209715200
+
+development:
+  <<: *defaults
+test:
+  <<: *defaults
+production:
+  <<: *defaults

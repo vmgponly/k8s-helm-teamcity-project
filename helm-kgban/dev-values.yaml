@@ -1,0 +1,49 @@
+# Default values for app-release.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 2
+
+environment:
+  ENVIRONMENT: "sandbox"
+  KGBAN_REDIS_HOST: "redis"
+  KGBAN_REDIS_PORT: "6379"
+  RAILS_ENV: "development"
+  RAILS_MASTER_KEY: "6b5821d8fcb45103ea9f9a680f73bbdd"
+
+image:
+  app_repository: 409389662862.dkr.ecr.us-west-2.amazonaws.com/kgban-dev
+  batch_repository: 409389662862.dkr.ecr.us-west-2.amazonaws.com/kgban-dev
+  redis_repository: 409389662862.dkr.ecr.us-west-2.amazonaws.com/redis
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  app_tag: "app"
+  batch_tag: "batch"
+  redis_tag: "5.0.4"
+
+namespace: dev-env-namespace
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: NodePort
+  port: 80
+  targetport: 3000
+
+redis:
+  name: redis
+  containerPort: 6379
+  claim_name: redis-claim0 
+  storage: 100Mi
+
+ingress:
+  name: nwrc-ingress
+  annotations: 
+    ingress_class: nginx-dev
+    auth_secret: basic-auth
+  host: nw-restriction-dev.noa.nintendo.com
+  backend:
+    serviceName: app
+    servicePort: 80

@@ -1,0 +1,8 @@
+= bootstrap_flash
+
+= form_with(model: @device, scope: '', local: true, url: status_path) do |f|
+  .form-group
+    = f.label :serial_number, t('.serial_number'), class: 'col-form-label'
+    = f.text_field :serial_number, id: :device_serial_number, class: 'form-control', autofocus: true
+  .form-group
+      = f.submit t('.search'), class: 'btn btn-primary btn-block'

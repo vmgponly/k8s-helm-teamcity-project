@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"
+    title = t('.title')
+    = csrf_meta_tags
+
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+
+  body
+    header.navbar
+      nav class="navbar navbar-default navbar-fixed-top#{Rails.env == 'development' ? ' navbar-inverse' : ''}" role='navigation'
+        .container-fluid
+          = link_to [t('.title'), Rails.env == 'development' ? ENV['ENVIRONMENT'].capitalize : ''].join(' '), root_path, class: 'navbar-brand hidden-xs-down mr-2'
+
+    main.container-fluid
+      .row
+        .col-md-6.col-md-offset-3
+          = yield
+
+    footer
+      .row
+        .col-md-6.col-md-offset-3
+          ul.footer-links
+            li
+              a href="https://www.nintendo.com/terms-of-use" target="_blank"
+                span.link-text Terms of Use
+            li
+              a href="https://www.nintendo.com/privacy-policy" target="_blank"
+                span.link-text Privacy Policy
+      .row
+        .col-md-6.col-md-offset-3
+          p.text-right &copy; Nintendo

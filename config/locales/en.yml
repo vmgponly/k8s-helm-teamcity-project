@@ -1,0 +1,19 @@
+en:
+  device:
+  layouts:
+    application:
+      title: Nintendo Switch Network Restriction Checker
+  bans:
+    search:
+      serial_number: Serial Number
+      search: Search
+    show:
+      serial_number: Serial Number
+      status: Status
+      free: Not restricted
+      device_ban:
+        banned: Nintendo has restricted access to online service from this device
+      device_app_ban:
+        banned: Nintendo has restricted access to online service.
+  errors:
+    ip_restriction: You've reached the maximum number of queries allowed at this time. Please wait at least one minute before submitting another query.

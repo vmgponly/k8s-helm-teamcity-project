@@ -1,0 +1,50 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+.container-fluid {
+  margin: 0 auto;
+}
+
+%ban-status {
+  @extend .glyphicon;
+  margin-right: 5px;
+  font-size: 20px;
+  line-height: 1.0;
+  vertical-align: text-bottom;
+}
+
+dd.free {
+  &:before {
+    @extend %ban-status;
+    content: "\e089";
+    color: green;
+  }
+}
+
+dd.banned {
+  &:before {
+    @extend %ban-status;
+    content: "\e209";
+    color: red;
+  }
+}
+
+footer ul.footer-links {
+  @extend .list-inline;
+
+  text-align: right;
+
+  li {
+
+    a {
+      color: #3c3c3c;
+      text-decoration: none;
+
+      span.link-text {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

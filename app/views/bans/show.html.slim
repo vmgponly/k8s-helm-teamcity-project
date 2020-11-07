@@ -1,0 +1,9 @@
+= render partial: 'search'
+
+dl
+  dt = t('.serial_number')
+  dd = @status.serial_number
+
+dl
+  dt = t('.status')
+  dd class="#{@status.status.gsub('.', ' ')}" = t(@status.status)
