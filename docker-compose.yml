@@ -4,6 +4,7 @@ services:
     build:
       context: .
       target: app-run-server
+    image: noa_infra_app:latest  
     depends_on:
       - redis
     environment:
@@ -16,6 +17,7 @@ services:
     build:
       context: .
       target: batch-run-server
+    image: noa_infra_batch:latest  
     depends_on:
       - redis
     environment:
