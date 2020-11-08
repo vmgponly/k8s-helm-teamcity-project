@@ -9,7 +9,8 @@ RUN apk add -U --no-cache \
 RUN gem install bundler -v '~> 2.1.4'
 
 WORKDIR /app
-COPY .ruby-version Gemfile Gemfile.lock /app/
+#COPY .ruby-version Gemfile Gemfile.lock /app/
+COPY Gemfile Gemfile.lock /app/
 COPY vendor/cache /app/vendor/cache
 RUN bundle install --local \
     && rm -rf vendor/bundle/ruby/*/cache vendor/cache/*.gem
